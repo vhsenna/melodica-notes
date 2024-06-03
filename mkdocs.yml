@@ -1,0 +1,13 @@
+site_name: Melodica Notes
+repo_url: https://github.com/vhsenna/melodica-notes
+repo_name: vhsenna/melodica-notes
+edit_uri: tree/main/docs
+
+theme:
+  name: readthedocs
+
+markdown_extensions:
+  - attr_list
+
+extra_css:
+  - stylesheets/extra.css
