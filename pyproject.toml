@@ -4,8 +4,13 @@ version = "0.1.0"
 description = "Melodica Notes is a CLI tool designed to assist melodica players with musical scales, chords, and harmonic series."
 authors = ["Victor Senna <vhsenna@gmail.com>"]
 
+[tool.poetry.scripts]
+scales = "melodica_notes.cli:app"
+
 [tool.poetry.dependencies]
 python = "^3.10"
+typer = "^0.12.3"
+rich = "^13.7.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.1"
