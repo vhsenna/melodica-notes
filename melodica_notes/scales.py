@@ -6,12 +6,12 @@ def scale(tonic_note: str, scale_mode: str) -> dict[str, list[str]]:
     """
     Generate a scale based on a tonic and a scale type.
 
-    Parameters:
+    Args:
         tonic_note (str): The musical note serving as the tonic of the scale.
-        scale_mode (str): The type of the scale. Currently supports only "major".
+        scale_mode (str): The type of the scale, e.g., major or minor.
 
     Returns:
-        dict: A dictionary containing the notes of the scale and their corresponding degrees.
+        A dictionary containing the notes of the scale and their corresponding degrees.
 
     Raises:
         ValueError: If the tonic note is invalid.
@@ -24,7 +24,6 @@ def scale(tonic_note: str, scale_mode: str) -> dict[str, list[str]]:
         >>> scale("A", "minor")
         {'notes': ['A', 'B', 'C', 'D', 'E', 'F', 'G'], 'degrees': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
     """
-
     tonic_note = tonic_note.upper()
 
     try:
