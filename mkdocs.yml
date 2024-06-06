@@ -4,7 +4,7 @@ repo_name: vhsenna/melodica-notes
 edit_uri: tree/main/docs
 
 theme:
-  name: readthedocs
+  name: material
 
 markdown_extensions:
   - attr_list
