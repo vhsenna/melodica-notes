@@ -2,21 +2,25 @@
 
 # Melodica Notes
 
-Melodica Notes is a command-line tool designed to provide information about musical scales, chords, and their corresponding notes.
+Melodica Notes is a command-line tool designed to provide information about musical scales, chords, and harmonics.
 
 ## How to Use
 
-Melodica Notes offers two main commands: `scale` and `chord`.
+The core of the application revolves around a command called `melodica-notes`.
+
+Melodica Notes offers three subcommands: `scale`, `chord`, and `harmonic`.
 
 ## Scale
 
-To check a scale, simply use the `scale` command followed by the desired note and scale mode. For instance:
+To check a scale, simply use the `scale` command followed by the desired note and scale mode.
+
+At present, Melodica Notes supports `major` (default) and `minor` scale modes.
+
+### Major Scale
 
 ```bash
 poetry run melodica-notes scale C
 ```
-
-This will display the scale degrees and their corresponding notes:
 
 ```bash
 ┏━━━┳━━━━┳━━━━━┳━━━━┳━━━┳━━━━┳━━━━━┓
@@ -26,15 +30,11 @@ This will display the scale degrees and their corresponding notes:
 └───┴────┴─────┴────┴───┴────┴─────┘
 ```
 
-### Changing the Scale Mode
-
-You can specify scale mode by providing additional arguments. For example, to display the F# minor scale:
+### Minor Scale
 
 ```bash
 poetry run melodica-notes scales F# minor
 ```
-
-Output:
 
 ```bash
 ┏━━━━┳━━━━┳━━━━━┳━━━━┳━━━━┳━━━━┳━━━━━┓
@@ -44,19 +44,17 @@ Output:
 └────┴────┴─────┴────┴────┴────┴─────┘
 ```
 
-### Supported Scale Modes
-
-At present, Melodica Notes supports major and minor scale modes.
-
 ## Chord
 
-To check a chord, simply use the chord command followed by the desired chord name. For example:
+To check a chord, simply use the `chord` command followed by the desired chord name.
+
+Melodica Notes supports the following chord types: major (default), `m` (minor), `dim` (diminished), `+` (augmented) and `m+` (minor augmented). For example:
+
+### Major Chord
 
 ```bash
 poetry run melodica-notes chord A
 ```
-
-Output:
 
 ```bash
 ┏━━━┳━━━━━┳━━━┓
@@ -66,34 +64,94 @@ Output:
 └───┴─────┴───┘
 ```
 
-### Chord variations
-
-You can explore different chord variations by specifying the chord name. For instance:
+### Minor Chord
 
 ```bash
-poetry run melodica-notes chord D+
+poetry run melodica-notes chord Em
 ```
-
-Output:
 
 ```bash
-┏━━━┳━━━━━┳━━━━┓
-┃ I ┃ III ┃ V+ ┃
-┡━━━╇━━━━━╇━━━━┩
-│ D │ F#  │ A# │
-└───┴─────┴────┘
+┏━━━┳━━━━━━┳━━━┓
+┃ I ┃ III- ┃ V ┃
+┡━━━╇━━━━━━╇━━━┩
+│ E │ G    │ B │
+└───┴──────┴───┘
 ```
 
-### Supported Chord Types
+### Diminished Chord
 
-Currently, Melodica Notes supports major (default), minor (`m`), diminished (`dim`), and augmented (`+`) chords.
+```bash
+poetry run melodica-notes chord Fdim
+```
+
+```bash
+┏━━━┳━━━━━━┳━━━━┓
+┃ I ┃ III- ┃ V- ┃
+┡━━━╇━━━━━━╇━━━━┩
+│ F │ G#   │ B  │
+└───┴──────┴────┘
+```
+
+### Minor Augmented Chord
+
+```bash
+poetry run melodica-notes chord Gm+
+```
+
+```bash
+┏━━━┳━━━━━━┳━━━━┓
+┃ I ┃ III- ┃ V+ ┃
+┡━━━╇━━━━━━╇━━━━┩
+│ G │ A#   │ D# │
+└───┴──────┴────┘
+```
+
+## Harmonic
+
+You can access the harmonic using the `harmonic` command.
+
+Melodica Notes supports `major` (default) and `minor` harmonic modes. For example:
+
+### Harmonic Major
+
+```bash
+poetry run melodica-notes harmonic E
+```
+
+```bash
+┏━━━┳━━━━━┳━━━━━┳━━━━┳━━━┳━━━━━┳━━━━━━━┓
+┃ I ┃ ii  ┃ iii ┃ IV ┃ V ┃ vi  ┃ vii°  ┃
+┡━━━╇━━━━━╇━━━━━╇━━━━╇━━━╇━━━━━╇━━━━━━━┩
+│ E │ F#m │ G#m │ A  │ B │ C#m │ D#dim │
+└───┴─────┴─────┴────┴───┴─────┴───────┘
+```
+
+### Harmonic Minor
+
+```bash
+poetry run melodica-notes harmonic F# minor
+```
+
+```bash
+┏━━━━━┳━━━━━━━┳━━━━━┳━━━━┳━━━━━┳━━━━┳━━━━━┓
+┃ i   ┃ ii°   ┃ III ┃ iv ┃ v   ┃ VI ┃ VII ┃
+┡━━━━━╇━━━━━━━╇━━━━━╇━━━━╇━━━━━╇━━━━╇━━━━━┩
+│ F#m │ G#dim │ A   │ Bm │ C#m │ D  │ E   │
+└─────┴───────┴─────┴────┴─────┴────┴─────┘
+```
 
 ## Additional Information
 
 For additional options and help, use the `--help` flag with any command:
 
 ```bash
-poetry run melodica-notes scales --help
+poetry run melodica-notes [COMMANDS] --help
+
+╭─ Commands ─────────────────────────────────────────────────────╮
+│ chord                                                          │
+│ harmonic                                                       │
+│ scale                                                          │
+╰────────────────────────────────────────────────────────────────╯
 ```
 
 This will provide you with detailed information on available commands and options.
