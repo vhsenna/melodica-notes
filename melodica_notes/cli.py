@@ -13,7 +13,17 @@ app = Typer()
 def scale(
         tonic_note: str = Argument("C", help="Tonic Note"),
         scale_mode: str = Argument("major", help="Scale Mode")
-):
+) -> None:
+    """
+    Display a scale based on a tonic note and scale mode.
+
+    Args:
+        tonic_note (str): The tonic note of the scale. Default is "C".
+        scale_mode (str): The scale mode. Default is "major".
+
+    Returns:
+        None
+    """
     table = Table()
 
     notes, degrees = _scale(tonic_note, scale_mode).values()
@@ -27,7 +37,16 @@ def scale(
 
 
 @app.command()
-def chord(tonic_note: str = Argument("C", help="Tonic Note")):
+def chord(tonic_note: str = Argument("C", help="Tonic Note")) -> None:
+    """
+    Display a chord based on a tonic note.
+
+    Args:
+        tonic_note (str): The tonic note of the chord. Default is "C".
+
+    Returns:
+        None
+    """
     table = Table()
 
     notes, degrees = _chord(tonic_note).values()
