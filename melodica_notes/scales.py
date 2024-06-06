@@ -1,5 +1,5 @@
 NOTES = "C C# D D# E F F# G G# A A# B".split()
-SCALES = {"major": (0, 2, 4, 5, 7, 9, 11)}
+SCALES = {"major": (0, 2, 4, 5, 7, 9, 11), "minor": (0, 2, 3, 5, 7, 8, 10)}
 
 
 def scale(tonic_note: str, scale_mode: str) -> dict[str, list[str]]:
@@ -21,8 +21,8 @@ def scale(tonic_note: str, scale_mode: str) -> dict[str, list[str]]:
         >>> scale("C", "major")
         {'notes': ['C', 'D', 'E', 'F', 'G', 'A', 'B'], 'degrees': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
 
-        >>> scale("a", "major")
-        {'notes': ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'], 'degrees': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
+        >>> scale("A", "minor")
+        {'notes': ['A', 'B', 'C', 'D', 'E', 'F', 'G'], 'degrees': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
     """
 
     tonic_note = tonic_note.upper()

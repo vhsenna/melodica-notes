@@ -8,7 +8,6 @@ def test_handles_lowercase_notes():
     scale_mode = "major"
 
     result = scale(tonic_note, scale_mode)
-
     assert result
 
 
@@ -21,7 +20,6 @@ def test_raises_error_for_invalid_note():
 
     with raises(ValueError) as error:
         scale(tonic_note, scale_mode)
-
         assert error_message == error.value.args[0]
 
 
@@ -34,7 +32,6 @@ def test_raises_error_for_invalid_scale_mode():
 
     with raises(KeyError) as error:
         scale(tonic_note, scale_mode)
-
         assert error_message == error.value.args[0]
 
 
@@ -56,18 +53,18 @@ def test_raises_error_for_invalid_scale_mode():
         ('B', 'major', ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#']),
 
         # Minor Scales
-        # ('C', 'minor', ['C', 'D', 'D#', 'F', 'G', 'G#', 'A#']),
-        # ('C#', 'minor', ['C#', 'D#', 'E', 'F#', 'G#', 'A', 'B']),
-        # ('D', 'minor', ['D', 'E', 'F', 'G', 'A', 'A#', 'C']),
-        # ('D#', 'minor', ['D#', 'F', 'F#', 'G#', 'A#', 'B', 'C#']),
-        # ('E', 'minor', ['E', 'F#', 'G', 'A', 'B', 'C', 'D']),
-        # ('F', 'minor', ['F', 'G', 'G#', 'A#', 'C', 'C#', 'D#']),
-        # ('F#', 'minor', ['F#', 'G#', 'A', 'B', 'C#', 'D', 'E']),
-        # ('G', 'minor', ['G', 'A', 'A#', 'C', 'D', 'D#', 'F']),
-        # ('G#', 'minor', ['G#', 'A#', 'B', 'C#', 'D#', 'E', 'F#']),
-        # ('A', 'minor', ['A', 'B', 'C', 'D', 'E', 'F', 'G']),
-        # ('A#', 'minor', ['A#', 'C', 'C#', 'D#', 'F', 'F#', 'G#']),
-        # ('B', 'minor', ['B', 'C#', 'D', 'D#', 'F#', 'G', 'A#']),
+        ('C', 'minor', ['C', 'D', 'D#', 'F', 'G', 'G#', 'A#']),
+        ('C#', 'minor', ['C#', 'D#', 'E', 'F#', 'G#', 'A', 'B']),
+        ('D', 'minor', ['D', 'E', 'F', 'G', 'A', 'A#', 'C']),
+        ('D#', 'minor', ['D#', 'F', 'F#', 'G#', 'A#', 'B', 'C#']),
+        ('E', 'minor', ['E', 'F#', 'G', 'A', 'B', 'C', 'D']),
+        ('F', 'minor', ['F', 'G', 'G#', 'A#', 'C', 'C#', 'D#']),
+        ('F#', 'minor', ['F#', 'G#', 'A', 'B', 'C#', 'D', 'E']),
+        ('G', 'minor', ['G', 'A', 'A#', 'C', 'D', 'D#', 'F']),
+        ('G#', 'minor', ['G#', 'A#', 'B', 'C#', 'D#', 'E', 'F#']),
+        ('A', 'minor', ['A', 'B', 'C', 'D', 'E', 'F', 'G']),
+        ('A#', 'minor', ['A#', 'C', 'C#', 'D#', 'F', 'F#', 'G#']),
+        ('B', 'minor', ['B', 'C#', 'D', 'E', 'F#', 'G', 'A']),
     ],
 )
 def test_should_return_correct_scale_notes(tonic_note, scale_mode, expected):
@@ -81,5 +78,4 @@ def test_should_return_seven_diatonic_degrees():
     expected = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']
 
     result = scale(tonic_note, scale_mode)
-
     assert result['degrees'] == expected
