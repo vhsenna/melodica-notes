@@ -1,6 +1,6 @@
 from pytest import mark
 
-from melodica_notes.chords import chord
+from melodica_notes.chord import chord
 
 
 @mark.parametrize(

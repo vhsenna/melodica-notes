@@ -1,5 +1,5 @@
-from melodica_notes.chords import _triad
-from melodica_notes.scales import scale
+from melodica_notes.chord import _triad
+from melodica_notes.scale import scale
 
 
 def _triad_scale(key: str, scale_key: list):
