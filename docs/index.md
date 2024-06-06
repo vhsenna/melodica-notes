@@ -2,17 +2,21 @@
 
 # Melodica Notes
 
-Melodica Notes is a command-line tool for displaying musical scales and their corresponding notes.
+Melodica Notes is a command-line tool designed to provide information about musical scales, chords, and their corresponding notes.
 
 ## How to Use
 
-To use Melodica Notes, simply call the scales via the command line. For example:
+Melodica Notes offers two main commands: `scale` and `chord`.
+
+## Scale
+
+To check a scale, simply use the `scale` command followed by the desired note and scale mode. For instance:
 
 ```bash
-poetry run scales
+poetry run melodica-notes scale C
 ```
 
-This will return the corresponding scale degrees and their notes:
+This will display the scale degrees and their corresponding notes:
 
 ```bash
 ┏━━━┳━━━━┳━━━━━┳━━━━┳━━━┳━━━━┳━━━━━┓
@@ -22,12 +26,12 @@ This will return the corresponding scale degrees and their notes:
 └───┴────┴─────┴────┴───┴────┴─────┘
 ```
 
-### Changing the Tonic Note
+### Changing the Scale Mode
 
-You can also change the tonic note of the scale. This is specified as the first parameter in the command line. For example, to display the F# scale, use:
+You can specify scale mode by providing additional arguments. For example, to display the F# minor scale:
 
 ```bash
-poetry run scales F#
+poetry run melodica-notes scales F# minor
 ```
 
 Output:
@@ -36,46 +40,62 @@ Output:
 ┏━━━━┳━━━━┳━━━━━┳━━━━┳━━━━┳━━━━┳━━━━━┓
 ┃ I  ┃ II ┃ III ┃ IV ┃ V  ┃ VI ┃ VII ┃
 ┡━━━━╇━━━━╇━━━━━╇━━━━╇━━━━╇━━━━╇━━━━━┩
-│ F# │ G# │ A#  │ B  │ C# │ D# │ F   │
+│ F# │ G# │ A#  │ B  │ C# │ D  │ E   │
 └────┴────┴─────┴────┴────┴────┴─────┘
 ```
 
-## Changing the Scale Mode
+### Supported Scale Modes
 
-You can also change the mode of the scale. This is specified as the second parameter in the command line. For example, to display the D# major scale:
+At present, Melodica Notes supports major and minor scale modes.
+
+## Chord
+
+To check a chord, simply use the chord command followed by the desired chord name. For example:
 
 ```bash
-poetry run scales D# major
+poetry run melodica-notes chord A
 ```
 
 Output:
 
 ```bash
-┏━━━━┳━━━━┳━━━━━┳━━━━┳━━━━┳━━━━┳━━━━━┓
-┃ I  ┃ II ┃ III ┃ IV ┃ V  ┃ VI ┃ VII ┃
-┡━━━━╇━━━━╇━━━━━╇━━━━╇━━━━╇━━━━╇━━━━━┩
-│ D# │ F  │ G   │ G# │ A# │ C  │ D   │
-└────┴────┴─────┴────┴────┴────┴─────┘
+┏━━━┳━━━━━┳━━━┓
+┃ I ┃ III ┃ V ┃
+┡━━━╇━━━━━╇━━━┩
+│ A │ C#  │ E │
+└───┴─────┴───┘
 ```
 
-## Further Details on the CLI
+### Chord variations
 
-To explore additional options, simply utilize the `--help` flag.
+You can explore different chord variations by specifying the chord name. For instance:
 
 ```bash
-poetry run scales --help
+poetry run melodica-notes chord D+
 ```
 
 Output:
 
 ```bash
-
- Usage: scales [OPTIONS] [TONIC_NOTE] [SCALE_MODE]
-
-╭─ Arguments ───────────────────────────────────────────────────────────────╮
-│   tonic_note      [TONIC_NOTE]  Tonic Note [default: C]                   │
-│   scale_mode      [SCALE_MODE]  Scale Mode [default: major]               │
-╰───────────────────────────────────────────────────────────────────────────╯
+┏━━━┳━━━━━┳━━━━┓
+┃ I ┃ III ┃ V+ ┃
+┡━━━╇━━━━━╇━━━━┩
+│ D │ F#  │ A# │
+└───┴─────┴────┘
 ```
 
-Enjoy using Melodica Notes to explore different musical scales effortlessly!
+### Supported Chord Types
+
+Currently, Melodica Notes supports major (default), minor (`m`), diminished (`dim`), and augmented (`+`) chords.
+
+## Additional Information
+
+For additional options and help, use the `--help` flag with any command:
+
+```bash
+poetry run melodica-notes scales --help
+```
+
+This will provide you with detailed information on available commands and options.
+
+Enjoy exploring different musical scales and chords effortlessly with Melodica Notes!
