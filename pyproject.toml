@@ -5,7 +5,7 @@ description = "Melodica Notes is a CLI tool designed to assist melodica players 
 authors = ["Victor Senna <vhsenna@gmail.com>"]
 
 [tool.poetry.scripts]
-scales = "melodica_notes.cli:app"
+melodica-notes = "melodica_notes.cli:app"
 
 [tool.poetry.dependencies]
 python = "^3.10"
