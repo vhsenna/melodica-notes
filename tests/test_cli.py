@@ -39,3 +39,15 @@ def test_chord_cli_should_contain_correct_response(note,):
 def test_degree_cli_should_contain_correct_response(degree):
     result = runner.invoke(app, ["scale", 'F'])
     assert degree in result.stdout
+
+
+@mark.parametrize('degree', ['I', 'ii', 'iii', 'IV', 'V', 'vi', 'vii°'])
+def test_harmonic_cli_should_contain_all_degrees(degree):
+    result = runner.invoke(app, ['harmonic', 'C'])
+    assert degree in result.stdout
+
+
+@mark.parametrize('chord', ['C', 'Dm', 'Em', 'F', 'G', 'Am', 'Bdim'])
+def test_harmonic_cli_should_contain_all_chords(chord):
+    result = runner.invoke(app, ['harmonic', 'C'])
+    assert chord in result.stdout

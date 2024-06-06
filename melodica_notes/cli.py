@@ -3,6 +3,7 @@ from rich.table import Table
 from typer import Argument, Typer
 
 from melodica_notes.chords import chord as _chord
+from melodica_notes.harmonic import harmonic as _harmonic
 from melodica_notes.scales import scale as _scale
 
 console = Console()
@@ -55,5 +56,35 @@ def chord(tonic_note: str = Argument("C", help="Tonic Note")) -> None:
         table.add_column(degree)
 
     table.add_row(*notes)
+
+    console.print(table)
+
+
+@app.command()
+def harmonic(
+    tonic_note: str = Argument('C', help='Tonic Note'),
+    scale_mode: str = Argument('major', help='Scale Mode'),
+) -> None:
+    """
+    Generates a harmonic progression based on the specified tonic note and
+        scale mode.
+
+    Args:
+        tonic_note (str): The tonic note of the harmonic progression. Defaults
+            to 'C'.
+        scale_mode (str): The scale mode of the harmonic progression. Defaults
+            to 'major'.
+
+    Returns:
+        None
+    """
+    table = Table()
+
+    chords, degrees = _harmonic(tonic_note, scale_mode).values()
+
+    for degree in degrees:
+        table.add_column(degree)
+
+    table.add_row(*chords)
 
     console.print(table)
