@@ -12,6 +12,9 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css
 
+watch:
+  - melodica_notes
+
 plugins:
 - mkdocstrings:
     handlers:
