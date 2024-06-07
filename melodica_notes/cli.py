@@ -2,9 +2,9 @@ from rich.console import Console
 from rich.table import Table
 from typer import Argument, Typer
 
-from melodica_notes.chord import chord as _chord
-from melodica_notes.harmonic import harmonic as _harmonic
-from melodica_notes.scale import scale as _scale
+from melodica_notes.chords import chord as _chord
+from melodica_notes.harmonics import harmonic as _harmonic
+from melodica_notes.scales import scale as _scale
 
 console = Console()
 app = Typer()

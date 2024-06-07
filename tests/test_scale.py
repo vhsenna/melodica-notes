@@ -1,6 +1,6 @@
 from pytest import mark, raises
 
-from melodica_notes.scale import NOTES, SCALES, scale
+from melodica_notes.scales import NOTES, SCALES, scale
 
 
 def test_handles_lowercase_notes():

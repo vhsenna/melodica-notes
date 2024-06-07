@@ -1,4 +1,4 @@
-from melodica_notes.scale import NOTES, scale
+from melodica_notes.scales import NOTES, scale
 
 
 def minor(tonic_note: str) -> tuple[list[str], list[str]]:

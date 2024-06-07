@@ -1,5 +1,5 @@
-from melodica_notes.chord import triad
-from melodica_notes.scale import scale
+from melodica_notes.chords import triad
+from melodica_notes.scales import scale
 
 
 def triad_scale(key: str, scale_key: list):
