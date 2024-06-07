@@ -232,3 +232,14 @@ Generate the project documentation using the following command:
 ```bash
 task docs
 ```
+
+## Upcoming Features
+
+`[ ]` Add support for [additional scales](https://en.wikipedia.org/wiki/List_of_musical_scales_and_modes)
+- [ ] Develop a feature for [harmonic progressions](https://en.wikipedia.org/wiki/Chord_progression)
+- [ ] Add support for [suspended chords](https://en.wikipedia.org/wiki/Suspended_chord)
+- [ ] Implement a feature for [tetrads](https://en.wikipedia.org/wiki/Tetrad_(music)), including:
+  - [ ] 7th chords (dominant, major, minor)
+  - [ ] 9th chords (dominant, major, minor)
+- [ ] Develop a feature for [harmonic functions](https://en.wikipedia.org/wiki/Function_(music))
+- [ ] Implement custom error classes for improved error handling and clarity
