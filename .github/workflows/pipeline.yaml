@@ -19,3 +19,6 @@ jobs:
 
       - name: Install project dependencies
         run: poetry install --without doc
+
+      - name: Run tests
+        run: poetry run task test --cov-report=xml
