@@ -5,38 +5,38 @@ from melodica_notes.scale import NOTES, SCALES, scale
 
 def test_handles_lowercase_notes():
     tonic_note = "c"
-    scale_mode = "major"
+    scale_type = "major"
 
-    result = scale(tonic_note, scale_mode)
+    result = scale(tonic_note, scale_type)
     assert result
 
 
 def test_raises_error_for_invalid_note():
     tonic_note = "X"
-    scale_mode = "major"
+    scale_type = "major"
 
     error_message = (
         f"This tonic note does not exist. Please use one of these: {NOTES}")
 
     with raises(ValueError) as error:
-        scale(tonic_note, scale_mode)
+        scale(tonic_note, scale_type)
         assert error_message == error.value.args[0]
 
 
-def test_raises_error_for_invalid_scale_mode():
+def test_raises_error_for_invalid_scale_type():
     tonic_note = "C"
-    scale_mode = "scale"
+    scale_type = "scale"
 
     error_message = ("This scale mode does not exist or has not been implemented. Please use one of these: "
                      f"{list(SCALES.keys())}")
 
     with raises(KeyError) as error:
-        scale(tonic_note, scale_mode)
+        scale(tonic_note, scale_type)
         assert error_message == error.value.args[0]
 
 
 @mark.parametrize(
-    'tonic_note, scale_mode, expected',
+    'tonic_note, scale_type, expected',
     [
         # Major Scales
         ('C', 'major', ['C', 'D', 'E', 'F', 'G', 'A', 'B']),
@@ -67,15 +67,15 @@ def test_raises_error_for_invalid_scale_mode():
         ('B', 'minor', ['B', 'C#', 'D', 'E', 'F#', 'G', 'A']),
     ],
 )
-def test_should_return_correct_scale_notes(tonic_note, scale_mode, expected):
-    result = scale(tonic_note, scale_mode)
+def test_should_return_correct_scale_notes(tonic_note, scale_type, expected):
+    result = scale(tonic_note, scale_type)
     assert result['notes'] == expected
 
 
 def test_should_return_seven_diatonic_degrees():
     tonic_note = 'C'
-    scale_mode = 'major'
+    scale_type = 'major'
     expected = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']
 
-    result = scale(tonic_note, scale_mode)
+    result = scale(tonic_note, scale_type)
     assert result['degrees'] == expected

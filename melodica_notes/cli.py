@@ -13,21 +13,21 @@ app = Typer()
 @app.command()
 def scale(
         tonic_note: str = Argument("C", help="Tonic Note"),
-        scale_mode: str = Argument("major", help="Scale Mode")
+        scale_type: str = Argument("major", help="Scale Mode")
 ) -> None:
     """
     Display a scale based on a tonic note and scale mode.
 
     Args:
         tonic_note (str): The tonic note of the scale. Default is "C".
-        scale_mode (str): The scale mode. Default is "major".
+        scale_type (str): The scale mode. Default is "major".
 
     Returns:
         None
     """
     table = Table()
 
-    notes, degrees = _scale(tonic_note, scale_mode).values()
+    notes, degrees = _scale(tonic_note, scale_type).values()
 
     for degree in degrees:
         table.add_column(degree)
@@ -63,7 +63,7 @@ def chord(tonic_note: str = Argument("C", help="Tonic Note")) -> None:
 @app.command()
 def harmonic(
     tonic_note: str = Argument('C', help='Tonic Note'),
-    scale_mode: str = Argument('major', help='Scale Mode'),
+    scale_type: str = Argument('major', help='Scale Mode'),
 ) -> None:
     """
     Generates a harmonic progression based on the specified tonic note and
@@ -72,7 +72,7 @@ def harmonic(
     Args:
         tonic_note (str): The tonic note of the harmonic progression. Defaults
             to 'C'.
-        scale_mode (str): The scale mode of the harmonic progression. Defaults
+        scale_type (str): The scale mode of the harmonic progression. Defaults
             to 'major'.
 
     Returns:
@@ -80,7 +80,7 @@ def harmonic(
     """
     table = Table()
 
-    chords, degrees = _harmonic(tonic_note, scale_mode).values()
+    chords, degrees = _harmonic(tonic_note, scale_type).values()
 
     for degree in degrees:
         table.add_column(degree)

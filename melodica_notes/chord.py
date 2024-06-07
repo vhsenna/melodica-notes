@@ -56,14 +56,14 @@ def _semitone(tonic_note: str, *, interval: int) -> str:
     return NOTES[position % 12]
 
 
-def _triad(tonic_note: str, scale_mode: str) -> list[str]:
+def _triad(tonic_note: str, scale_type: str) -> list[str]:
     """
     Generate the triad based on a given tonic note and scale mode.
 
     Args:
         tonic_note (str): The tonic note or the root note of the scale for
             which you want to determine the triad type.
-        scale_mode (str): The type of the scale. Currently supports only
+        scale_type (str): The type of the scale. Currently supports only
             "major".
 
     Returns:
@@ -81,7 +81,7 @@ def _triad(tonic_note: str, scale_mode: str) -> list[str]:
         ['A', 'C', 'E']
     """
     degrees = (0, 2, 4)
-    scale_notes, _ = scale(tonic_note, scale_mode).values()
+    scale_notes, _ = scale(tonic_note, scale_type).values()
 
     return [scale_notes[degree] for degree in degrees]
 

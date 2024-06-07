@@ -64,13 +64,13 @@ def _convert_degrees(tonic_note: str, degree: str):
     return degree
 
 
-def harmonic(tonic_note: str, scale_mode: str) -> dict[str, list[str]]:
+def harmonic(tonic_note: str, scale_type: str) -> dict[str, list[str]]:
     """
     Generates a harmonic progression based on a note and a scale.
 
     Args:
         tonic_note (str): The root note of the harmonic progression.
-        scale_mode (str): The scale, e.g., major, minor, etc.
+        scale_type (str): The scale, e.g., major, minor, etc.
 
     Returns:
         A harmonic progression containing chords and their corresponding degrees.
@@ -82,7 +82,7 @@ def harmonic(tonic_note: str, scale_mode: str) -> dict[str, list[str]]:
         >>> harmonic("C", "minor")
         {'chords': ['Cm', 'Ddim', 'D#', 'Fm', 'Gm', 'G#', 'A#'], 'degrees': ['i', 'ii°', 'III', 'iv', 'v', 'VI', 'VII']}
     """
-    keys, _degrees = scale(tonic_note, scale_mode).values()
+    keys, _degrees = scale(tonic_note, scale_type).values()
     chords = [_triad_scale(key, keys) for key in keys]
     degrees = [_convert_degrees(chord, degree)
                for chord, degree in zip(chords, _degrees)]

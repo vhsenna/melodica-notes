@@ -2,13 +2,13 @@ NOTES = "C C# D D# E F F# G G# A A# B".split()
 SCALES = {"major": (0, 2, 4, 5, 7, 9, 11), "minor": (0, 2, 3, 5, 7, 8, 10)}
 
 
-def scale(tonic_note: str, scale_mode: str) -> dict[str, list[str]]:
+def scale(tonic_note: str, scale_type: str) -> dict[str, list[str]]:
     """
     Generate a scale based on a tonic and a scale type.
 
     Args:
         tonic_note (str): The musical note serving as the tonic of the scale.
-        scale_mode (str): The type of the scale, e.g., major or minor.
+        scale_type (str): The type of the scale, e.g., major or minor.
 
     Returns:
         A dictionary containing the notes of the scale and their corresponding degrees.
@@ -27,7 +27,7 @@ def scale(tonic_note: str, scale_mode: str) -> dict[str, list[str]]:
     tonic_note = tonic_note.upper()
 
     try:
-        intervals = SCALES[scale_mode]
+        intervals = SCALES[scale_type]
         tonic_position = NOTES.index(tonic_note)
     except ValueError:
         raise ValueError(
