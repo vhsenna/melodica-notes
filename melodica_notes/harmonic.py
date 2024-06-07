@@ -1,8 +1,8 @@
-from melodica_notes.chord import _triad
+from melodica_notes.chord import triad
 from melodica_notes.scale import scale
 
 
-def _triad_scale(key: str, scale_key: list):
+def triad_scale(key: str, scale_key: list):
     """
     Determine whether the triad of a note is within the scale.
 
@@ -17,14 +17,14 @@ def _triad_scale(key: str, scale_key: list):
             provided.
 
     Examples:
-        >>> _triad_scale('C', ['C', 'D', 'E', 'F', 'G', 'A', 'B'])
+        >>> triad_scale('C', ['C', 'D', 'E', 'F', 'G', 'A', 'B'])
         'C'
-        >>> _triad_scale('D', ['C', 'D', 'E', 'F', 'G', 'A', 'B'])
+        >>> triad_scale('D', ['C', 'D', 'E', 'F', 'G', 'A', 'B'])
         'Dm'
-        >>> _triad_scale('B', ['C', 'D', 'E', 'F', 'G', 'A', 'B'])
+        >>> triad_scale('B', ['C', 'D', 'E', 'F', 'G', 'A', 'B'])
         'Bdim'
     """
-    tonic_note, third, fifth = _triad(key, 'major')
+    tonic_note, third, fifth = triad(key, 'major')
 
     match third in scale_key, fifth in scale_key:
         case True, True:
@@ -35,7 +35,7 @@ def _triad_scale(key: str, scale_key: list):
             return f'{tonic_note}dim'
 
 
-def _convert_degrees(tonic_note: str, degree: str):
+def convert_degrees(tonic_note: str, degree: str):
     """
     Converts a musical degree to its corresponding notation based on the given
         tonic note.
@@ -48,11 +48,11 @@ def _convert_degrees(tonic_note: str, degree: str):
         str: The converted degree.
 
     Examples:
-        >>> _convert_degrees('C', 'I')
+        >>> convert_degrees('C', 'I')
         'I'
-        >>> _convert_degrees('Cm', 'I')
+        >>> convert_degrees('Cm', 'I')
         'i'
-        >>> _convert_degrees('Cdim', 'I')
+        >>> convert_degrees('Cdim', 'I')
         'i°'
     """
     if 'dim' in tonic_note:
@@ -83,8 +83,8 @@ def harmonic(tonic_note: str, scale_type: str) -> dict[str, list[str]]:
         {'chords': ['Cm', 'Ddim', 'D#', 'Fm', 'Gm', 'G#', 'A#'], 'degrees': ['i', 'ii°', 'III', 'iv', 'v', 'VI', 'VII']}
     """
     keys, _degrees = scale(tonic_note, scale_type).values()
-    chords = [_triad_scale(key, keys) for key in keys]
-    degrees = [_convert_degrees(chord, degree)
+    chords = [triad_scale(key, keys) for key in keys]
+    degrees = [convert_degrees(chord, degree)
                for chord, degree in zip(chords, _degrees)]
 
     return {'chords': chords, 'degrees': degrees}
