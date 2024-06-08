@@ -11,6 +11,9 @@ melodica-notes = "melodica_notes.cli:app"
 python = "^3.10"
 typer = "^0.12.3"
 rich = "^13.7.1"
+mkdocs-material = "^9.5.26"
+mkdocstrings = "^0.25.1"
+mkdocstrings-python = "^1.10.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.1"
