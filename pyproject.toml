@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "melodica-notes"
-version = "0.1.0"
+version = "0.1.1"
 description = "Melodica Notes is a CLI tool to assist melodica players with musical scales, chords, and harmonics."
 license = "GNU GPLv3"
 authors = ["Victor Senna <vhsenna@gmail.com>"]
