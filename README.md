@@ -4,6 +4,11 @@
 
 # Melodica Notes
 
+[![Documentation](https://readthedocs.org/projects/melodica-notes/badge/?version=latest)](https://melodica-notes.readthedocs.io/en/latest/?badge=latest)
+[![Pipeline](https://github.com/vhsenna/melodica-notes/actions/workflows/pipeline.yaml/badge.svg)](https://github.com/vhsenna/melodica-notes/actions/workflows/pipeline.yaml)
+[![codecov](https://codecov.io/gh/vhsenna/melodica-notes/graph/badge.svg?token=75K7TA74BI)](https://codecov.io/gh/vhsenna/melodica-notes)
+[![PyPI version](https://badge.fury.io/py/melodica-notes.svg)](https://badge.fury.io/py/melodica-notes)
+
 Melodica Notes is a command-line tool designed to provide information about musical scales, chords, and harmonics.
 
 ## How to Install
