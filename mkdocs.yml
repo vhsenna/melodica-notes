@@ -18,7 +18,7 @@ watch:
   - melodica_notes
 
 plugins:
-- mkdocstrings:
-    handlers:
-      python:
-        paths: [melodica_notes]
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [melodica_notes]
