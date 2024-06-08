@@ -22,3 +22,7 @@ plugins:
       handlers:
         python:
           paths: [melodica_notes]
+
+extra:
+  commands:
+    run: melodica-notes
