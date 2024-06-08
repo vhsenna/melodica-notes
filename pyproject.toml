@@ -1,8 +1,24 @@
 [tool.poetry]
 name = "melodica-notes"
 version = "0.1.0"
-description = "Melodica Notes is a CLI tool designed to assist melodica players with musical scales, chords, and harmonic series."
+description = "Melodica Notes is a CLI tool to assist melodica players with musical scales, chords, and harmonics."
+license = "GNU GPLv3"
 authors = ["Victor Senna <vhsenna@gmail.com>"]
+readme = "README.md"
+packages = [{include = "melodica_notes"}]
+classifiers = [
+    "Topic :: Education",
+    "Environment :: Console",
+    "Natural Language :: English",
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3.10",
+]
+
+[tool.poetry.urls]
+"Documentation" = "https://melodica-notes.readthedocs.io"
+"Source" = "https://github.com/vhsenna/melodica-notes"
+"Issue Tracker" = "https://github.com/vhsenna/melodica-notes/issues"
+"Donate" = "https://www.paypal.com/donate/?hosted_button_id=U37WUXE2TSW6Y"
 
 [tool.poetry.scripts]
 melodica-notes = "melodica_notes.cli:app"
