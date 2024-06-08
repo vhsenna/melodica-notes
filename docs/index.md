@@ -2,7 +2,7 @@
 
 # Melodica Notes
 
-Melodica Notes is a command-line tool designed to provide information about musical scales, chords, and harmonics.
+Melodica Notes is a CLI tool to assist melodica players with musical scales, chords, and harmonics.
 
 ## How to Install
 

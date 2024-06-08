@@ -9,7 +9,7 @@
 [![codecov](https://codecov.io/gh/vhsenna/melodica-notes/graph/badge.svg?token=75K7TA74BI)](https://codecov.io/gh/vhsenna/melodica-notes)
 [![PyPI version](https://badge.fury.io/py/melodica-notes.svg)](https://badge.fury.io/py/melodica-notes)
 
-Melodica Notes is a command-line tool designed to provide information about musical scales, chords, and harmonics.
+Melodica Notes is a CLI tool to assist melodica players with musical scales, chords, and harmonics.
 
 ## How to Install
 
