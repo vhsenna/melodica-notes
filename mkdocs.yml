@@ -1,11 +1,11 @@
 site_name: Melodica Notes
 repo_url: https://github.com/vhsenna/melodica-notes
-repo_name: vhsenna/melodica-notes
+repo_name: melodica-notes
 edit_uri: tree/main/docs
 
 theme:
-  name: material
-  logo: assets/logo.png
+  name: readthedocs
+  # logo: assets/logo.png
   favicon: assets/logo.png
 
 markdown_extensions:
