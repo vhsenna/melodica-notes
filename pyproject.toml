@@ -19,10 +19,10 @@ taskipy = "^1.12.2"
 
 [tool.poetry.group.doc.dependencies]
 mkdocs = "^1.6.0"
-mkdocstrings = "^0.25.1"
-mkdocstrings-python = "^1.10.3"
 jinja2 = "^3.1.4"
 mkdocs-material = "^9.5.26"
+mkdocstrings = "^0.25.1"
+mkdocstrings-python = "^1.10.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
