@@ -1,4 +1,4 @@
-from melodica_notes.scales import NOTES, scale
+from melodica_notes.scales import FLAT_NOTES, SHARP_NOTES, scale
 
 
 def minor(tonic_note: str) -> tuple[list[str], list[str]]:
@@ -51,9 +51,19 @@ def semitone(tonic_note: str, *, interval: int) -> str:
         >>> semitone('A', interval=-1)
         'G#'
     """
-    position = NOTES.index(tonic_note.upper()) + interval
+    if len(tonic_note) == 1:
+        tonic_note = tonic_note.upper()
+    else:
+        tonic_note = tonic_note[0].upper() + tonic_note[1].lower()
 
-    return NOTES[position % 12]
+    try:
+        position = SHARP_NOTES.index(tonic_note) + interval
+        notes = SHARP_NOTES
+    except ValueError:
+        position = FLAT_NOTES.index(tonic_note) + interval
+        notes = FLAT_NOTES
+
+    return notes[position % 12]
 
 
 def triad(tonic_note: str, scale_type: str) -> list[str]:
